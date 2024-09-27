@@ -1,38 +1,84 @@
 ---
-title: Hello World
+title: 版本号的基本流程
 ---
-Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
+### 版本号的基本流程
+Git 是一个分布式版本控制系统，广泛用于软件开发中的代码管理和版本控制。以下是一个基本的 Git 使用流程，涵盖从初始化仓库到提交更改和推送更改到远程仓库的主要步骤：
 
-## Quick Start
+### 1. 安装 Git
 
-### Create a new post
+首先，你需要在你的计算机上安装 Git。可以从 [Git 官网](https://git-scm.com/) 下载并安装。
 
-``` bash
-$ hexo new "My New Post"
+### 2. 配置 Git
+
+安装完 Git 后，你需要配置一些基本信息，比如你的用户名和电子邮件地址。这些信息会附加到你的提交记录中。
+
+```bash
+git config --global user.name "你的名字"
+git config --global user.email "你的邮箱"
 ```
 
-More info: [Writing](https://hexo.io/docs/writing.html)
+### 3. 初始化 Git 仓库
 
-### Run server
+进入你的项目目录，然后执行以下命令来初始化一个新的 Git 仓库。
 
-``` bash
-$ hexo server
+```bash
+git init
 ```
 
-More info: [Server](https://hexo.io/docs/server.html)
+这会创建一个 `.git` 目录，其中包含了所有 Git 需要的文件和结构。
 
-### Generate static files
+### 4. 将文件添加到仓库
 
-``` bash
-$ hexo generate
+你可以使用 `git add` 命令将文件添加到暂存区（staging area），准备进行提交。
+
+```bash
+git add 文件名
+# 或者添加所有新文件和已修改文件
+git add .
 ```
 
-More info: [Generating](https://hexo.io/docs/generating.html)
+### 5. 提交更改
 
-### Deploy to remote sites
+使用 `git commit` 命令将暂存区的更改提交到仓库中。
 
-``` bash
-$ hexo deploy
+```bash
+git commit -m "提交信息"
 ```
 
-More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)
+`-m` 选项后面跟的是本次提交的说明信息。
+
+### 6. 查看更改历史
+
+使用 `git log` 命令查看提交历史。
+
+```bash
+git log
+```
+
+### 7. 推送更改到远程仓库
+
+如果你已经有一个远程仓库（比如 GitHub, GitLab 等），你可以将你的更改推送到远程仓库。
+
+首先，将远程仓库添加到你的本地仓库中（通常只需要做一次）。
+
+```bash
+git remote add origin 远程仓库URL(地址)
+```
+
+然后，将你的更改推送到远程仓库。
+
+```bash
+git push -u origin 分支名
+```
+
+`-u` 选项将远程分支与本地分支关联起来，这样你下次推送或拉取时就不需要指定分支名了。
+
+### 8. 从远程仓库拉取更改
+
+当其他人向远程仓库推送了更改时，你可以使用 `git pull` 命令将这些更改拉取到你的本地仓库。
+
+```bash
+git pull origin 分支名
+```
+###  9下载一个项目和它的整个代码历史
+` git clone [url]`
